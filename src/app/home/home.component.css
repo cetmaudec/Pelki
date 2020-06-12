@@ -1,0 +1,18 @@
+.container{
+	height: 80%;
+}
+
+app-navbar{
+	display: block;
+	height: auto;
+}
+
+app-home-maestranza{
+	display: block;
+	height: auto;
+}
+
+app-home-cliente{
+	display: block;
+	height: auto;
+}
