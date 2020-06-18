@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login V3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+  
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-reboot.min.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+    <div class="container">
+        <div class="container emp-profile">
+            <div class="row">
+                <div class="left">
+                    <div class="profile-img">
+                        <img src="{{InfoCliente.imagen}}" alt=""/>
+                        <img *ngIf="InfoCliente.imagen==null"src="data:image/png;base64,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" alt=""/>
+                        <div class="file btn btn-lg btn-primary">
+                            <button mat-button class="btn btn-info" (click)="openDialog()">Cambiar Foto</button>
+                        </div>
+                    </div>
+                </div>
+
+        <div class="main">
+            <div class="profile-head">
+                <h5> {{InfoCliente.nombre}}</h5>
+                <h6> {{InfoCliente.username}} </h6>
+            </div>
+
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Nombre</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p> {{InfoCliente.nombre}} </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6" *ngIf="!editCorreo">
+                            <p> {{InfoCliente.correo}}</p>                            
+                        </div>
+                        <div class="col-md-6" *ngIf="editCorreo">
+                            <form [formGroup]="EmailEditform">
+                              <input class="input200" clearInput  type="email" formControlName="correo" value={{InfoCliente.correo}}>
+                            </form>
+                        </div>
+                        <div class="col-sm-2" *ngIf="!editCorreo">
+                            <button mat-button class="btn btn-sm" (click)="EditInfo('correo')">
+                                <img  src="../assets/icons/pencil.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                        <div class="col-sm-2" *ngIf="editCorreo">
+                            <button mat-button class="btn btn-sm btn-success" (click)="Update('correo')">
+                                <img  src="../assets/icons/x.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Teléfono</label>
+                        </div>
+                        <div class="col-md-6" *ngIf="!editTelefono">
+                            <p> {{InfoCliente.telefono}}</p>                            
+                        </div>
+                        <div class="col-md-6" *ngIf="editTelefono">
+                            <form [formGroup]="TelefonoEditform">
+                              <input class="input200" clearInput  type="text" formControlName="telefono" value={{InfoCliente.telefono}}>
+                            </form>
+                        </div>
+                        <div class="col-sm-2" *ngIf="!editTelefono">
+                            <button mat-button class="btn btn-sm" (click)="EditInfo('telefono')">
+                                <img  src="../assets/icons/pencil.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                        <div class="col-sm-2" *ngIf="editTelefono">
+                            <button mat-button class="btn btn-sm btn-success" (click)="Update('telefono')">
+                                <img  src="../assets/icons/x.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Dirección</label>
+                        </div>
+                        <div class="col-md-6" *ngIf="!editDireccion">
+                            <p> {{InfoCliente.dir_calle}} {{InfoCliente.dir_num}}</p>                            
+                        </div>
+                        <div class="col-md-6 wrap-input200" *ngIf="editDireccion">
+                            <form [formGroup]="DireccionEditform">
+                                <input class="input200"  clearInput  type="text" formControlName="dir_calle" value={{InfoCliente.dir_calle}}>
+                                <input class="input200"  clearInput  type="number" formControlName="dir_num" value={{InfoCliente.dir_num}}>
+                            </form>
+                        </div>
+                        <div class="col-sm-2" *ngIf="!editDireccion">
+                            <button mat-button class="btn btn-sm" (click)="EditInfo('direccion')">
+                                <img  src="../assets/icons/pencil.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                        <div class="col-sm-2" *ngIf="editDireccion">
+                            <button mat-button class="btn btn-sm btn-success" (click)="Update('direccion')">
+                                <img  src="../assets/icons/x.svg"  width="20" class="d-inline-block align-center" alt="">
+                          </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Comuna</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{InfoCliente.dir_comuna}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Provincia</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{InfoCliente.dir_prov}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Región</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{InfoCliente.dir_region}}</p>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 5%;">
+                        <div class="col-md-3">
+                            <label>País</label>
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{InfoCliente.dir_pais}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border-top: 1px solid #ABB4C9;">
+                        <div class="profile-work">
+                            <label>SERVICIOS</label>
+                            <p>Website Link<br>Bootsnipp Profile<br>Bootply Profile<br>PHP, .Net</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dropDownSelect1"></div>
+  <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="assets/vendor/animsition/js/animsition.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/select2/select2.min.js"></script>
+  <script src="assets/vendor/daterangepicker/moment.min.js"></script>
+  <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+  <script src="assets/vendor/countdowntime/countdowntime.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html> 

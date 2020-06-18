@@ -67,7 +67,6 @@ export class RegisterComponent implements OnInit {
     	return this.regiones
 	}
 
-
 	async locationRegionProvincia(){
     	this.locationDataSourceRegProv = await this.http.get(environment.urlAddress+'location/region/provincia').toPromise();
     	 this.locationDataSourceRegProv = new MatTableDataSource(this.locationDataSourceRegProv.data);

@@ -1,0 +1,204 @@
+body{
+    background-color: transparent;
+}
+
+.container{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    background-color: transparent;
+
+}
+
+.left {
+    float:left;
+    width: 25%; /* The width is 20%, by default */
+}
+
+.main {
+    padding:20px;
+    float:left;
+    width:70%; /* The width is 60%, by default */
+}
+
+.right {
+    padding:20px;
+    float:left;
+    width:0%; /* The width is 20%, by default */
+}
+
+.right button{
+    border: none;
+    width: 70%;
+    padding: 2%;
+    color: #fff;
+    cursor: pointer;
+}
+
+.right .edit {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+.emp-profile{
+    padding: 1%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+    width: 100%;
+}
+
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 100%;
+    height: auto;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+    font-size: 30px;
+    padding-left: 10%;
+}
+.profile-head h6{
+    color: #0062cc;
+    font-size: 20px;
+    padding-left: 10%;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 16px;
+    color: #818182;
+    margin-top: 5%;
+}
+
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+
+.profile-head .nav-tabs .nav-link{
+    font-weight: 600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom: 2px solid #0062cc;
+}
+
+.profile-tab{
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.profile-tab label{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Poppins-Regular;
+}
+
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+
+.profile-work{
+  /*  padding: 14%;*/
+    padding-top: 5%;
+    padding-left: 3%;
+}
+.profile-work p{  
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+
+.profile-work label{
+    font-family: Poppins-Regular; 
+    font-weight: 600;
+    color: #0062cc;
+}
+
+.profile-work p{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/*
+INPUT
+*/
+.wrap-input200 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid rgba(255,255,255,0.24);
+  margin-bottom: 30px;
+}
+
+.input200 {
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.2;
+    border: 2px;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px 0 38px;
+    border-bottom: 1px solid #0062cc;
+}
+

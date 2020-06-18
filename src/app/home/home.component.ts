@@ -24,19 +24,19 @@ export class HomeComponent implements OnInit {
 		this.User = localStorage.getItem('user');
 	}
 
-  	async ngOnInit() {
-  		this.TipoUser = await this.getTipoUsuario();
-  		//console.log(this.tipo);
-  	}
+  async ngOnInit() {
+  	this.TipoUser = await this.getTipoUsuario();
+  	//console.log(this.tipo);
+  }
 
 
 	/*
 	GETTERS
 	*/
 	async getTipoUsuario(){
-  		this.TipoUser = await this.http.put(environment.urlAddress+'user/type', {username: this.User}).toPromise();
-  		this.tipo = this.TipoUser.data[0].tipo;
-    	return this.TipoUser;
-  	}
+  	this.TipoUser = await this.http.put(environment.urlAddress+'user/type', {username: this.User}).toPromise();
+  	this.tipo = this.TipoUser.data[0].tipo;
+    return this.TipoUser;
+  }
 
 }

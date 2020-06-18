@@ -27,7 +27,6 @@ app.use(cors())
 app.post('/auth',  bodyParser.json(), (req, res, next) => {
     const select_query=`SELECT COUNT(*) as total FROM usuario WHERE usuario.username='${req.body.username}' AND usuario.password = SHA('${req.body.password}');`
     con.query(select_query, (err, result) => {
-        console.log(result);
      if (err){
            return res.sendStatus(401);
         }else{
@@ -54,17 +53,6 @@ app.get('/users/username', (req, res) => {
     })
 })
 
-app.get('/users', (req, res) => {
-    con.query('SELECT nombreUsuario, email, usuario, question1, DATE_FORMAT(question2, "%Y-%m-%d") as question2, question3 FROM usuario;', (err, resultados) => {
-        if(err) {
-            return res.send(err)
-        } else {
-            return res.json({
-                data: resultados
-            })
-        }
-    })
-})
 
 app.post('/user/add',  bodyParser.json(), (req, res, next) => {
     const INSERT_USER_QUERY = `INSERT INTO usuario(username, password, tipo) VALUES('${req.body.username}',SHA('${req.body.password}'), '${req.body.tipo}');`
@@ -77,12 +65,12 @@ app.post('/user/add',  bodyParser.json(), (req, res, next) => {
     })
 })
 
-app.put('/user/type', bodyParser.json(), (req, res, next) => {
-    con.query(`SELECT tipo FROM usuario WHERE usuario.username = '${req.body.username}';`, (err, resultados) => {
+
+app.put('/user/image/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE usuario SET usuario.imagen = '${req.body.image}' WHERE usuario.username = '${req.body.username}';`, (err, resultados) => {
         if(err) {
             return res.send(err)
         } else {
-            console.log(resultados);
             return res.json({
                 data: resultados
             })
@@ -90,6 +78,50 @@ app.put('/user/type', bodyParser.json(), (req, res, next) => {
     })
 })
 
+app.put('/user/type', bodyParser.json(), (req, res, next) => {
+    con.query(`SELECT tipo FROM usuario WHERE usuario.username = '${req.body.username}';`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+
+
+/*
+INFO PERFIL
+*/
+app.put('/user/maestranza/info', bodyParser.json(), (req, res, next) => {
+    con.query(`SELECT * FROM usuario, maestranza WHERE usuario.id=maestranza.usuario AND usuario.username='${req.body.username}';`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+app.put('/user/cliente/info', bodyParser.json(), (req, res, next) => {
+    con.query(`SELECT * FROM usuario, cliente WHERE usuario.id=cliente.usuario AND usuario.username='${req.body.username}';`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+/*
+Tipos
+*/
 
 app.get('/users/type' , (req, res) => {
   con.query(`SELECT * FROM tipo_usuario;`, (err, resultados) => {
@@ -102,6 +134,10 @@ app.get('/users/type' , (req, res) => {
         }
     })
 })
+
+/*
+MAESTRANZA
+*/
 
 app.post('/maestranza/add',  bodyParser.json(), (req, res, next) => {
       con.query(`SELECT usuario.id FROM usuario WHERE usuario.username='${req.body.username}';`, (err, resultados) => {
@@ -120,6 +156,50 @@ app.post('/maestranza/add',  bodyParser.json(), (req, res, next) => {
     })
 })
 
+app.put('/maestranza/correo/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE maestranza SET maestranza.correo = '${req.body.correo}' WHERE maestranza.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            console.log(resultados);
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+app.put('/maestranza/telefono/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE maestranza SET maestranza.telefono = '${req.body.telefono}' WHERE maestranza.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+app.put('/maestranza/direccion/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE maestranza SET maestranza.dir_calle = '${req.body.dir_calle}', maestranza.dir_num = '${req.body.dir_num}' WHERE maestranza.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+
+
+/*
+CLIENTE
+*/
+
 app.post('/cliente/add',  bodyParser.json(), (req, res, next) => {
       con.query(`SELECT usuario.id FROM usuario WHERE usuario.username='${req.body.username}';`, (err, resultados) => {
         if(err) {
@@ -137,6 +217,48 @@ app.post('/cliente/add',  bodyParser.json(), (req, res, next) => {
     })
 })
 
+app.put('/cliente/correo/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE cliente SET cliente.correo = '${req.body.correo}' WHERE cliente.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            console.log(resultados);
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+app.put('/cliente/telefono/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE cliente SET cliente.telefono = '${req.body.telefono}' WHERE cliente.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+app.put('/cliente/direccion/update', bodyParser.json(), (req, res, next) => {
+    con.query(`UPDATE cliente SET cliente.dir_calle = '${req.body.dir_calle}', cliente.dir_num = '${req.body.dir_num}' WHERE cliente.usuario = ${req.body.username};`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
+
+
+/*
+LOCATION
+*/
 
 app.get('/location/region' , (req, res) => {
   con.query(`SELECT * FROM region;`, (err, resultados) => {
@@ -174,6 +296,8 @@ app.get('/location/provincia/comuna' , (req, res) => {
         }
     })
 })
+
+
 
 
 

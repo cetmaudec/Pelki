@@ -1,18 +1,28 @@
+html{
+	background-color: transparent;
+}
+
+body{
+	background: transparent;
+}
 .container{
-	height: 80%;
+	width: 100%;
 }
 
 app-navbar{
 	display: block;
 	height: auto;
+	background-color: transparent;
 }
 
 app-home-maestranza{
 	display: block;
-	height: auto;
+	height: 100%;
+	background-color: transparent;
 }
 
 app-home-cliente{
 	display: block;
-	height: auto;
+	height: 100%;
+	background-color: transparent;
 }

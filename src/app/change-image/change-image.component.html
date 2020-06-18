@@ -23,18 +23,25 @@
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">	
 </head>
 
-
 <body>
-	<app-navbar></app-navbar>
-	<div class="container">
-		<div *ngIf="tipo == 'Administrador'">Administrador</div>
-		<div *ngIf="tipo == 'Cliente'">
-			<app-perfil-cliente></app-perfil-cliente>
-		</div>
-		<div *ngIf="tipo == 'Maestranza'">
-			<app-perfil-maestranza></app-perfil-maestranza>
-		</div>
-	</div>
+<div class="card">
+	<h5 class="card-title">Nueva foto de perfil</h5>
+	<div class="card-body">
+		
+		<div class="row no-gutters">
+    		<img src={{base64textString}} alt="" id="img">
+    	</div>
+
+		<div class="row no-gutters">
+    		<form [formGroup]="ChangeFileForm">
+    			<input type="file" (change)="onUploadChange($event)" formControlName="file" accept=".png, .jpg, .jpeg" />
+			</form>
+    	</div>
+    	<div class="row-button">
+    		<button class="btn btn-success" (click)="ChangeFile()">Aceptar</button>
+    	</div>
+    </div>
+</div>
 	
 	<div id="dropDownSelect1"></div>
 	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>

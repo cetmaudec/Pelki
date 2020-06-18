@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule } from  '@angular/material';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 //import { AngularSvgIconModule } from 'angular-svg-icon';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
          MatSortModule, MatTableModule } from "@angular/material";
@@ -30,6 +31,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MatchComponent } from './match/match.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { PerfilMaestranzaComponent } from './perfil-maestranza/perfil-maestranza.component';
+import { ChangeImageComponent } from './change-image/change-image.component';
 
 
 export function tokenGetter() {
@@ -37,47 +41,54 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotpasswordComponent,
-    HomeComponent,
-    HomeMaestranzaComponent,
-    HomeClienteComponent,
-    NavbarComponent,
-    PerfilComponent,
-    MatchComponent,
-    ServiciosComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    HttpClientInMemoryWebApiModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule ,
-    MatSliderModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCheckboxModule,
-    //AngularSvgIconModule,
-    //NgxPaginationModule
-  ],
-  providers: [
-    AuthService,
-    AuthGuard
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        ForgotpasswordComponent,
+        HomeComponent,
+        HomeMaestranzaComponent,
+        HomeClienteComponent,
+        NavbarComponent,
+        PerfilComponent,
+        MatchComponent,
+        ServiciosComponent,
+        PerfilClienteComponent,
+        PerfilMaestranzaComponent,
+        ChangeImageComponent
+    ], 
+    entryComponents: [
+        ChangeImageComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        HttpClientInMemoryWebApiModule,
+        MatInputModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule ,
+        MatSliderModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        //AngularSvgIconModule,
+        //NgxPaginationModule
+    ],
+    providers: [
+        AuthService,
+        AuthGuard    
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
