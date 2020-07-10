@@ -1,0 +1,790 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+}
+@font-face {
+  font-family: "Open Sans Light";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+}
+@font-face {
+  font-family: "Open Sans Extrabold";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Open Sans Extrabold"), local("OpenSans-Extrabold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/EInbV5DfGHOiMmvb1Xr-hp1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+  background-color: transparent;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  background-image: url("src/assets/images/Fondo_home@2x.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 90%;
+  width: auto;
+  background-repeat: repeat;
+  background-size: cover;
+}
+/*
+[RESPONSIVE]
+*/
+.left {
+    width:45%; /* The width is 20%, by default */
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.right {
+    width:55%; /* The width is 20%, by default */
+    overflow: hidden;
+    background-color: rgba(18,161,154,0.6);
+
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+
+@media screen and (max-width: 640px) {
+  .limiter {
+    background-image: url("src/assets/images/Fondo_home@2x.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 90%;
+    width: auto;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+
+  .left {
+    width:100%; 
+    height:auto;
+  }
+
+  .right, .main {
+    display: none;
+  }
+
+  .login-title h1 { 
+    font-family: Open Sans Bold; 
+    font-family: inherit;
+    /*font-size: 35px;*/
+    font-size: 6vw; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold; 
+    line-height: 26.4px; 
+  } 
+
+
+  .wrap-register h2{
+    padding-top: 5%;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: thin;
+    text-align: center;
+    font-size: 4vw; 
+    color: rgba(255,255,255,1);
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1280px) {
+  .limiter {
+    background-image: url("src/assets/images/Fondo_home@2x.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 90%;
+    width: auto;
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+  .contenedor {
+    width: 100%;
+    height: 94%;
+    position: relative;
+    /*  opacity: 0.8;*/
+  }
+
+  .row{
+    height: 100%;
+    width: auto;
+    position: fixed;
+  }
+
+  .left {
+    width:45%; /* The width is 20%, by default */
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .right {
+    width:55%; /* The width is 20%, by default */
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(18,161,154,0.6);
+  }
+
+
+  .login-logo {
+    font-size: 3vw;
+  }
+
+  .login-title h1 { 
+    font-family: Open Sans Bold; 
+    font-family: inherit;
+    /*font-size: 35px;*/
+    font-size: 2.5vw; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold; 
+    line-height: 26.4px; 
+  } 
+
+  .wrap-register h2{
+    padding-top: 5%;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: thin;
+    text-align: center;
+    font-size: 1.5vw; 
+    color: rgba(255,255,255,1);
+  }
+
+  .title-right{
+    text-align: right;
+    width: 100%;
+    height: auto;
+    padding-top: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+  }
+
+  .title-right h1{
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    font-family: Open Sans Bold;
+    font-size: 2.8vw;
+    line-height : 150%;
+    color: rgba(255,255,255,1);
+  }
+
+  .subtitle-right {
+    text-align: right;
+    width: 100%;
+    height:auto;
+    padding-top: 1%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 10%;
+  }
+
+  .subtitle-right h2{
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    font-family: Open Sans;
+    font-style: bolder;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height : 150%;
+    color: rgba(255,255,255,1);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .limiter {
+    background-image: url("src/assets/images/Fondo_home@2x.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 90%;
+    width: auto;
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100%;
+  }
+
+  .contenedor {
+    width: 100%;
+    height: 94%;
+    position: relative;
+    /*  opacity: 0.8;*/
+  }
+
+  .row{
+    height: 100%;
+    width: auto;
+    position: fixed;
+  }
+
+  .left {
+    width:45%; /* The width is 20%, by default */
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+
+  .right {
+    width:55%; /* The width is 20%, by default */
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(18,161,154,0.6);
+  }
+  
+  .login-logo {
+    font-size: 3vw;
+  }
+
+  .wrap-register h2{
+    padding-top: 5%;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: thin;
+    text-align: center;
+    font-size: 1.5vw; 
+    color: rgba(255,255,255,1);
+  }
+
+  .login-title h1 { 
+    font-family: Open Sans Bold; 
+    font-family: inherit;
+    /*font-size: 35px;*/
+    font-size: 2vw; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold; 
+    line-height: 26.4px; 
+  } 
+
+  .title-right h1{
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    font-family: Open Sans Bold;
+    font-size: 2.5vw;
+    line-height : 150%;
+    color: rgba(255,255,255,1);
+  }
+
+  .subtitle-right h2{
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    font-family: Open Sans;
+    font-style: bolder;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height : 150%;
+    color: rgba(255,255,255,1);
+  }
+
+  .footer {
+    background-color: rgba(103, 103, 103, 0.8);
+    position: absolute;
+    bottom: 0;
+    height: 6%;
+    width: 100%;
+    padding-left:5%;
+    padding-right:3%;
+  }
+
+  .footer img{
+    width: auto;
+  }
+}
+
+/*************************************************************************************************************/
+
+/*
+[Login]
+*/
+.wrap-login100 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border: 0px solid transparent;
+  border-radius: 100px;
+  background-color: #12A19A;
+}
+
+/*GRIS*/
+.login-pass{
+  background-color: #e6e6e6;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  top: 0px;
+  left: 0px;
+  border: 20px solid #e6e6e6;
+  border-radius: 50px 50px 0px 0px;
+}
+
+.login-logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: auto;
+  padding: 5%;
+  margin: 0 auto;
+}
+
+.login-title {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  color: rgba(0,0,0,1);
+}
+
+.login-form {
+  padding: 5% 15% 5% 15%;
+}
+
+.login-form input{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(140,140,140,1);
+  border-bottom: 2px solid rgba(140,140,140,0.6);
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.input100 {
+  font-family: Open Sans;
+  font-size: 16px;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+}
+
+.input100:focus {
+  padding-left: 5px;
+}
+
+.input100:focus + .focus-input100::after {
+  top: -22px;
+  font-size: 18px;
+}
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::after {
+  top: -22px;
+  font-size: 18px;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 {
+  padding-left: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #12A19A;
+  padding: 10%;
+}
+
+
+/*------------------------------------------------------------------
+[ Button ]*/
+
+
+.login100-form-btn {
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.2;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 70px;
+  border-radius: 100px;
+  width: 70%;
+
+
+  background: #e6e6e6;
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login100-form-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: rgba(23,181,173,1);
+  color: #fff;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+  color: #12A19A;
+}
+
+.login100-form-btn:hover:before {
+  opacity: 0;
+  color: #fff;
+}
+
+.light{
+    filter: drop-shadow(10px -5px 10px rgba(139, 218, 214, 0.161));
+    width: 100%;  
+    justify-content: center;
+    display: flex;
+}
+
+.dark{
+  width: 100%;
+  filter: drop-shadow(10px -5px 10px rgba(11, 90, 86, 0.161));
+  justify-content: center;
+  display: flex;
+}
+
+.olvide-pass{
+  width: 100%;
+  text-align: center;
+  padding: 0% 0% 5% 0%;
+  font-family: Open Sans;
+
+}
+
+.olvide-pass a{
+  font-size: 14px;
+}
+
+
+.wrap-register{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: rgba(255,255,255,1);
+}
+
+.register-btn {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5% 10% 5% 10%;
+}
+
+
+.register-form-btn {
+  font-family: Open Sans;
+  font-size: 18px;
+  line-height: 1.2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 70px;
+  border-radius: 100px;
+  width: 70%;
+
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+
+  background:   transparent;
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.register-form-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.register-form-btn:hover {
+  color: #fff;
+}
+
+.register-form-btn:hover:before {
+  opacity: 0;
+  color: #fff;
+}
+
+.title-right{
+  text-align: right;
+  width: 100%;
+  height: auto;
+  padding-top: 8%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+}
+
+
+.subtitle-right {
+  text-align: right;
+  width: 100%;
+  height:auto;
+  padding-top: 1%;
+  padding-right: 10%;
+  padding-left: 30%;
+  padding-bottom: 10%;
+}
+
+.logo-pelki{
+  text-align: right;
+  width: 100%;
+  height:auto;
+  padding-right: 10%;
+  padding-left: 15%;
+  padding-bottom: 10%;
+}
+
+.logo-pelki img{
+  width: 40%;
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+  margin: 0px; 
+  padding: 0px; 
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+/*---------------------------------------------*/
+a {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+  margin: 0px;
+}
+
+p {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+}
+
+ul, li {
+  margin: 0px;
+  list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+  outline: none;
+  border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+
+label {
+  margin: 0;
+  display: block;
+}
+
+/*---------------------------------------------*/
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+iframe {
+  border: none !important;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #e5e5e5;
+  line-height: 1.5;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+

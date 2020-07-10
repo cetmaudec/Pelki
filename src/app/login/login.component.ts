@@ -21,28 +21,29 @@ export class LoginComponent implements OnInit {
   logIN: any;
   idUser: any;
 
-    constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private auth: AuthService ) { 
-      this.loginForm = this.formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
-      });
-    }
+  constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private auth: AuthService ) { 
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-     ngOnInit() {
-      console.log("Login Enter");
-    }
+  ngOnInit() {
+  }
 
-    async loginUser(){
-      console.log(this.loginForm.value.password);
-      this.auth.login(this.loginForm.value.username, this.loginForm.value.password)
-        .pipe(first())
-        .subscribe( 
-          result => this.router.navigate(['/home']),
-          err => Swal.fire({
+  async loginUser(){
+    this.auth.login(this.loginForm.value.username, this.loginForm.value.password).pipe(first()).subscribe( 
+      result => this.router.navigate(['/home']),
+      err => Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Usuario y/o Contraseña Incorrecta'
           })
       );
-    }
+  }
+
+    register(){
+      this.router.navigate(['/register']);
+  }
+
 }

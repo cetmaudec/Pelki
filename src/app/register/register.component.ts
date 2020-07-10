@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import Swal from'sweetalert2'
 import { AuthService } from '../auth.service';
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { MatTableDataSource, MatSort, Sort } from '@angular/material';
+import { MatTableDataSource, MatSort, Sort, MatSlideToggleModule} from '@angular/material';
+'@angular/forms';
 import { environment } from '../environment';
 
 @Component({
@@ -27,6 +28,9 @@ export class RegisterComponent implements OnInit {
 	confirm = false;
 
 	users: any = [];
+
+	disabled = false;
+   checked = false; 
 
 	constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient) { 
 		this.registerForm = this.formBuilder.group({
@@ -216,4 +220,9 @@ export class RegisterComponent implements OnInit {
         	})
     	);	
 	}
+
+	autoRenew = new FormControl();
+	onChange() {
+  		console.log(this.autoRenew.value);
+	} 
 }

@@ -10,8 +10,11 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isCollapse = true; 
+  TipoUser: any;
 
-  constructor(private router: Router, private auth: AuthService ) { }
+  constructor(private router: Router, private auth: AuthService ) {
+   this.TipoUser = localStorage.getItem('tipo');
+  }
 
   ngOnInit() {
   }

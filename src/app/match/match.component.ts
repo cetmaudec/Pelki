@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchComponent implements OnInit {
 
-  constructor() { }
+   	User: any;
+	TipoUser: any;
+
+	constructor() { 
+		this.User = localStorage.getItem('user');
+    	this.TipoUser = localStorage.getItem('tipo');
+	}
 
   ngOnInit() {
   }

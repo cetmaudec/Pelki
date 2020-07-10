@@ -1,0 +1,52 @@
+body{
+    background-color: transparent;
+}
+
+.container{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    background-color: transparent;
+
+}
+
+.left {
+    float:left;
+    width: 20%; /* The width is 20%, by default */
+}
+
+.main {
+    padding:20px;
+    float:left;
+    width:60%; /* The width is 60%, by default */
+}
+
+.right {
+    padding:20px;
+    float:left;
+    width:20%; /* The width is 20%, by default */
+}
+
+.right button{
+    border: none;
+    width: 70%;
+    padding: 2%;
+    color: #fff;
+    cursor: pointer;
+}
+
+.right .edit {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}

@@ -17,7 +17,7 @@ import { ChangeImageComponent } from '../change-image/change-image.component';
 })
 export class PerfilMaestranzaComponent implements OnInit {
 
-  	User: any;
+  User: any;
 	Maestranza: any = [];
 	
 	Perfil: FormGroup;
@@ -51,68 +51,68 @@ export class PerfilMaestranzaComponent implements OnInit {
 	constructor(public formBuilder: FormBuilder,private router: Router, private http: HttpClient, public dialog: MatDialog) { 
 		this.User = localStorage.getItem('user'); 
 		this.Perfil = this.formBuilder.group({
-	  		file:[''],
-	  		btnAddMore:['']
-	  	});
-	  	this.EmailEditform = this.formBuilder.group({
-	  		correo:['']
-	  	});
-	  	this.TelefonoEditform = this.formBuilder.group({
-	  		telefono:['']
-	  	});
-	  	this.DireccionEditform = this.formBuilder.group({
-	  		dir_calle:[''],
-	  		dir_num:['']
-	  	});
+	  	file:[''],
+	  });
+	  this.EmailEditform = this.formBuilder.group({
+	  	correo:['']
+	  });
+	  this.TelefonoEditform = this.formBuilder.group({
+	  	telefono:['']
+	  });
+	  this.DireccionEditform = this.formBuilder.group({
+	  	dir_calle:[''],
+	  	dir_num:['']
+	  });
 	}
-
-  	async ngOnInit() {
-  		this.editCorreo = false;
+  async ngOnInit() {
+  	this.editCorreo = false;
 		this.editTelefono = false;
 		this.editDireccion = false;
-  		this.Maestranza = await this.getInfoUsuario();
-  		//console.log(this.Maestranza);
-	  	//Let base64data = new Buffer(this.InfoMaestranza.imagen, 'utf-8').toString('base64');
-	  	//console.log( '" converted to Base64 is "' + base64data + '"');
-  	}
+  	this.Maestranza = await this.getInfoUsuario();
+  	//Let base64data = new Buffer(this.InfoMaestranza.imagen, 'utf-8').toString('base64');
+	  //console.log( '" converted to Base64 is "' + base64data + '"');
+  }
 
-  	counter(i: number) {
+
+  /*
+  Crea Array de 0 a i
+  Permite la incorporación de estrellas
+  */
+  counter(i: number) {
     	return new Array(i);
 	}
 
+  /*
+  Abrir Modal para cambiar foto del perfil
+  */
+  openDialog() {
+    const dialogRef = this.dialog.open(ChangeImageComponent); 
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
 
-
-  	openDialog() {
-    	const dialogRef = this.dialog.open(ChangeImageComponent);	
-	    	dialogRef.afterClosed().subscribe(result => {
-	    	  this.ngOnInit();
-    	});
+  /*
+  Editar info (correo, direccion o teléfono)
+  */
+  EditInfo(dato: String){
+    if(dato == 'correo'){
+  		this.editCorreo = true;
+  	}else if(dato == 'direccion'){
+  		this.editDireccion = true;
+  	}else if(dato == 'telefono'){
+  		this.editTelefono = true;
   	}
+  }
 
-
-	/*
-	Edit
-	*/
-
-  	EditInfo(dato: String){
-  		if(dato == 'correo'){
-  			this.editCorreo = true;
-  		}else if(dato == 'direccion'){
-  			this.editDireccion = true;
-  		}else if(dato == 'telefono'){
-  			this.editTelefono = true;
-  		}
-  	}
-
-  	Update(dato: String){
-  		console.log(this.InfoMaestranza.id_usuario);
-  		if(dato == 'correo'){
-  			var dataCorreo = {
-  				'username' : this.InfoMaestranza.id_usuario,
+  Update(dato: String){
+  	if(dato == 'correo'){
+      var dataCorreo = {
+        'username' : this.InfoMaestranza.id_usuario,
 				'correo': this.EmailEditform.get('correo').value
 			}
-			this.http.put(environment.urlAddress+'maestranza/correo/update', dataCorreo, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+      this.http.put(environment.urlAddress+'maestranza/correo/update', dataCorreo, {responseType: 'text'}).subscribe(
+        response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -121,20 +121,20 @@ export class PerfilMaestranzaComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
         	  	})
    	 		);
-  		}else if(dato == 'direccion'){
-  			var dataDireccion = {
+    }else if(dato == 'direccion'){
+  		var dataDireccion = {
   				'username' : this.InfoMaestranza.id_usuario,
-				'dir_calle': this.DireccionEditform.get('dir_calle').value,
-				'dir_num': this.DireccionEditform.get('dir_num').value
+				  'dir_calle': this.DireccionEditform.get('dir_calle').value,
+				  'dir_num': this.DireccionEditform.get('dir_num').value
 			}
 			this.http.put(environment.urlAddress+'maestranza/direccion/update', dataDireccion, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+	      response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -143,20 +143,19 @@ export class PerfilMaestranzaComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
         	  	})
    	 		);
-
-  		}else if(dato == 'telefono'){
-  			var dataTelefono = {
-  				'username' : this.InfoMaestranza.id_usuario,
+  	}else if(dato == 'telefono'){
+  		var dataTelefono = {
+  			'username' : this.InfoMaestranza.id_usuario,
 				'telefono': this.TelefonoEditform.get('telefono').value
 			}
 			this.http.put(environment.urlAddress+'maestranza/telefono/update', dataTelefono, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+	      response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -165,14 +164,14 @@ export class PerfilMaestranzaComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
         	  	})
-   	 		);
-  		}	
-  	}
+   	 	);
+  	}	
+  }
 
   	/*
 	GETTERS

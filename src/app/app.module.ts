@@ -34,6 +34,11 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { PerfilMaestranzaComponent } from './perfil-maestranza/perfil-maestranza.component';
 import { ChangeImageComponent } from './change-image/change-image.component';
+import { ServiciosMaestranzaComponent } from './servicios-maestranza/servicios-maestranza.component';
+import { ServiciosClienteComponent } from './servicios-cliente/servicios-cliente.component';
+
+import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material';
 
 
 export function tokenGetter() {
@@ -55,10 +60,12 @@ export function tokenGetter() {
         ServiciosComponent,
         PerfilClienteComponent,
         PerfilMaestranzaComponent,
-        ChangeImageComponent
+        ChangeImageComponent,
+        ServiciosMaestranzaComponent,
+        ServiciosClienteComponent
     ], 
     entryComponents: [
-        ChangeImageComponent
+        ChangeImageComponent,
     ],
     imports: [
         BrowserModule,
@@ -82,6 +89,8 @@ export function tokenGetter() {
         MatIconModule,
         MatCheckboxModule,
         MatDialogModule,
+        FormsModule,    
+        MatSlideToggleModule,
         //AngularSvgIconModule,
         //NgxPaginationModule
     ],

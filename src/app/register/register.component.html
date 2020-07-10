@@ -1,226 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<title>Login V3</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
-	
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
-
-	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">	
 </head>
 <body>
-	<div class="container">
-		<div class="card text-center text-white bg-secondary">
-			<div class="card-header">
-				Registro
-			</div>
-
-			<input type="hidden" #tipo>			
-    		<form [formGroup]="registerForm" (ngSubmit)="registerUser(tipo.value)" class="login100-form validate-form">
-    			<span class="login100-form-title p-b-34 p-t-27">
-					Creación de cuentas
-				</span>
-
-			<div class="row tipo-row">
-				<div class="col">
-					<button type="button" (click)="tipo.value = 'Maestranza'" class="btn btn-warning">
-						<img src="/assets/icons/tools.svg" alt="" width="32" height="32" title="Bootstrap">
-						Maestranza
-					</button>
+	<div class="limiter">
+		<div class="contenedor">
+			<div class="row">
+				<div class="left">
 				</div>
-				<div class="col">
-					<button type="button" (click)="tipo.value = 'Cliente'" class="btn btn-warning">
-						<img src="/assets/icons/people-fill.svg" alt="" width="32" height="32" title="Bootstrap">
-						Cliente
-					</button>
-				</div>
-			</div>
-			
-			
-		  	<div [ngSwitch]="tipo.value">
-		  	    <pre *ngSwitchDefault></pre>
-		  	    <pre *ngSwitchCase="'Maestranza'">Maestranza</pre>
-		  	    <pre *ngSwitchCase="'Cliente'">Cliente</pre>
-		  
-				<div class="card-body">
+				<div class="main">
 					<div class="wrap-register100">
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/building.svg" alt="" width="32" height="32" title="Bootstrap">
+						<div class="register-form">
+							<div class="pelki-logo">
+								<img src="../assets/images/PELKI_ISO.png" srcset="../assets/images/PELKI_ISO.png 1x, ../assets/images/PELKI_ISO@2x.png 2x">
 							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input *ngSwitchCase="'Maestranza'" class="input100" type="text" formControlName="nombre" placeholder="Nombre de Empresa">
-									<input *ngSwitchCase="'Cliente'" class="input100" type="text" formControlName="nombre" placeholder="Nombre Apellidos">
-									<input *ngSwitchDefault class="input100" type="text" formControlName="nombre" placeholder="Nombre">
-								</div>
-							</div>
-						</div>
+							<div class="register-title">
+								<h1>Datos de registro</h1>
+							</div>							
+							<div class="register-form-data">
+
+								<input type="hidden" #tipo>
+								<form [formGroup]="registerForm" (ngSubmit)="registerUser(tipo.value)" class="login100-form validate-form">
+									<div [ngSwitch]="tipo.value">
+
+										<div class="row button-group" *ngSwitchCase="'Maestranza'">
+											<div class="col-btn" style="background-color: grey; border-radius: 50px 0px 0px 50px;">
+												<button type="button" style="background-image: linear-gradient(90deg, #17b5ad , #0bc0a8);" (click)="tipo.value = 'Maestranza'" class="btn">Maestranza</button>
+											</div>
+											<div class="col-btn" style="background-color: grey; border-radius: 0px 50px 50px 0px;">
+												<button type="button" style="background-image: grey" (click)="tipo.value = 'Cliente'" class="btn">Cliente</button>
+											</div>
+										</div>
+
+										<div class="row button-group" *ngSwitchCase="'Cliente'">
+											<div class="col-btn" style="background-color: grey; border-radius: 50px 0px 0px 50px;">
+												<button type="button" style="background-image: grey;" (click)="tipo.value = 'Maestranza'" class="btn"> Maestranza</button>
+											</div>
+											<div class="col-btn" style="background-color: grey; border-radius: 0px 50px 50px 0px;">
+												<button type="button" style="background-image: linear-gradient(90deg, #17b5ad , #0bc0a8);" (click)="tipo.value = 'Cliente'" class="btn">Cliente</button>
+											</div>
+										</div>
+
+										<div class="row button-group" *ngSwitchDefault>
+											<div class="col-btn" style="background-color: grey; border-radius: 50px 0px 0px 50px;">
+												<button type="button" style="background-image: grey;" (click)="tipo.value = 'Maestranza'" class="btn">Maestranza</button>
+											</div>
+											<div class="col-btn" style="background-color: grey; border-radius: 0px 50px 50px 0px;">
+												<button type="button" style="background-image: linear-gradient(90deg, #17b5ad , #0bc0a8);" (click)="tipo.value = 'Cliente'" class="btn">Cliente</button>
+											</div>
+										</div>
+								
+		  	    						<!--<pre *ngSwitchDefault></pre>
+		  	    						<pre *ngSwitchCase="'Maestranza'">Maestranza</pre>
+		  	    						<pre *ngSwitchCase="'Cliente'">Cliente</pre>-->
+
+		  	    						<div class="contenedor-form">
+		  	    							<div class="row">
+		  	    								<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<input *ngSwitchCase="'Maestranza'" class="input100" type="text" formControlName="nombre" placeholder="	Nombre de Empresa">	
+													<input *ngSwitchCase="'Cliente'" class="input100" type="text" formControlName="nombre" placeholder="	Nombre Apellidos">
+													<input *ngSwitchDefault class="input100" type="text" formControlName="nombre" placeholder="Nombre">
+												</div>
+											</div>
 						
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/at.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" type="email" formControlName="email" placeholder="Correo electrónico">
-								</div>
-							</div>
-						</div>
+											<div class="row">
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<input class="input100" type="email" formControlName="email" placeholder="Correo electrónico">
+												</div>
+											</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/phone.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" type="tel" formControlName="telefono" placeholder="Teléfono o Celular">
-								</div>
-							</div>
-						</div>
+											<div class="row">
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<input class="input100" type="tel" formControlName="telefono" placeholder="Teléfono o Celular">
+												</div>
+											</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<select class="custom-select" formControlName="region"  required>
-                                  		<option (click)= "applyFilterRP($event)" *ngFor="let reg of regiones.data" value="{{reg.nombre}}">{{reg.nombre}}</option>
-                                  	</select>
-								</div>
-							</div>
-						</div>
-						
+											<div class="row">
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<select class="custom-select" formControlName="region"  required>
+														 <option value="" disabled selected hidden>Seleccione región</option>
+                                  						<option (click)= "applyFilterRP($event)" *ngFor="let reg of regiones.data" value="{{reg.nombre}}">{{reg.nombre}}</option>
+                                  					</select>
+                                  				</div>
+                                  			</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<select class="custom-select" formControlName="provincia"  required>
-                                  		<option (click)= "applyFilterPC($event)" *ngFor="let loc of locationDataSourceRegProv.filteredData" value="{{loc.provincia}}">{{loc.provincia}}</option>
-                                  	</select>
-								</div>
-							</div>
-						</div>
+                                  			<div class="row">							
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<select class="custom-select" formControlName="provincia"  required>
+														 <option value="" disabled selected hidden>Seleccione provincia</option>
+                              						  	<option (click)= "applyFilterPC($event)" *ngFor="let loc of locationDataSourceRegProv.filteredData" value="{{loc.provincia}}">{{loc.provincia}}</option>
+                                  					</select>
+                                  				</div>
+                                  			</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<select class="custom-select" formControlName="comuna"  placeholder="Seleccione comuna" required>
-                                  		<option *ngFor="let loc of locationDataSourceProvCom.filteredData" value="{{loc.comuna}}">{{loc.comuna}}</option>
-                                  	</select>
-								</div>
-							</div>
-						</div>
+                                  			<div class="row">						
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<select class="custom-select" formControlName="comuna"  placeholder="Seleccione comuna" required>
+														 <option value="" disabled selected hidden>Seleccione comuna</option>
+                                				  		<option *ngFor="let loc of locationDataSourceProvCom.filteredData" value="{{loc.comuna}}">{{loc.comuna}}</option>
+                                  					</select>
+                                  				</div>
+                                  			</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/geo-alt.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" type="text" formControlName="calle" placeholder="Dirección">
-								</div>
-							</div>
-
-							<div class="col-3">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" type="text" formControlName="num" placeholder="#">
-								</div>
-							</div>
-						</div>
+											<div class="row">
+												<div class="col-9 wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<input class="input100" type="text" formControlName="calle" placeholder="Dirección">
+												</div>
+				
+												<div class="col-3 wrap-input100 validate-input" style="padding-top: 3%;">
+													<span class="focus-input100"></span>
+													<input class="input100" type="text" formControlName="num" placeholder="#">
+												</div>
+											</div>
 					
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/person-fill.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input (keyup)= "verificarUsuario($event)" class="input100" type="text" formControlName="username" placeholder="Usuario">
-								</div>
-							</div>
-							<div class="col-1-sm" *ngIf="!userExist">
-								<img src="/assets/icons/person-fill.svg" alt="" width="20" height="20" title="Bootstrap">
+											<div class="row">
+												<div class="wrap-input100 validate-input" style="width: 95%;">
+													<span class="focus-input100"></span>
+													<input (keyup)= "verificarUsuario($event)" class="input100" type="text" formControlName="username" placeholder="Usuario">
+												</div>
+												<div class="col-1-sm" *ngIf="!userExist">
+													<img src="/assets/icons/person-fill.svg" alt="" width="20" height="20" title="Bootstrap">
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="wrap-input100 validate-input">
+													<span class="focus-input100"></span>
+													<input class="input100" (keyup)= "getPassword($event)" type="password" formControlName="password" minlength="8" placeholder="Contraseña">
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="wrap-input100 validate-input" style="width: 95%;">
+													<span class="focus-input100"></span>
+													<input class="input100" (keyup)="getconfirmPassword($event)" type="password" formControlName="password" minlength="8" placeholder="Confirme su contraseña">
+												</div>
+												<div class="col-1-sm" *ngIf="!confirm">
+													<img src="/assets/icons/asterisk.svg" alt="" width="20" height="20" title="Bootstrap">
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/asterisk.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" (keyup)= "getPassword($event)" type="password" formControlName="password" minlength="8" placeholder="Contraseña">
+						<div class="register-btn">
+							<div class="light">
+								<div class="dark">
+									<button class="login100-form-btn" (click)="registerUser(tipo.value)"> Registrar</button>
 								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-1-sm">
-								<img src="/assets/icons/asterisk.svg" alt="" width="32" height="32" title="Bootstrap">
-							</div>
-							<div class="col">
-								<div class="wrap-input100 validate-input">
-									<span class="focus-input100"></span>
-									<input class="input100" (keyup)="getconfirmPassword($event)" type="password" formControlName="password" minlength="8" placeholder="Confirme su contraseña">
-								</div>
-							</div>
-							<div class="col-1-sm" *ngIf="!confirm">
-								<img src="/assets/icons/asterisk.svg" alt="" width="20" height="20" title="Bootstrap">
-							</div>
-						</div>
-						
-						<div class="container-login100-form-btn">
-							<button class="login100-form-btn">
-								Registrar
-							</button>
+							</div>							
 						</div>
 					</div>
 				</div>
+				<div class="right">
+				</div>
 			</div>
-			</form>
 		</div>
 	</div>
-	
-	<div id="dropDownSelect1"></div>
-	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="assets/vendor/animsition/js/animsition.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/select2/select2.min.js"></script>
-	<script src="assets/vendor/daterangepicker/moment.min.js"></script>
-	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
-	<script src="assets/js/main.js"></script>
 </body>
-</html>	

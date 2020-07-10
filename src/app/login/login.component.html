@@ -1,85 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<title>Login V3</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
-			<div class="wrap-login100">
-				<form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="login100-form validate-form">
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
-
-					<span class="login100-form-title p-b-34 p-t-27">
-						Iniciar Sesión
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" formControlName="username" placeholder="Usuario">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" formControlName="password" placeholder="Contraseña">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<div class="row">
-						<div class="col">
-							<div class="contact100-form-checkbox">
-								<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-								<label class="label-checkbox100" for="ckb1"> Recordarme </label>
+		<div class="contenedor">
+			<div class="row">
+				<div class="left">
+					<div class="wrap-login100">
+						<div class="login-pass">
+							<div class="login-logo">
+								<img src="../assets/images/PELKI_ISO.png" srcset="../assets/images/PELKI_ISO.png 1x, ../assets/images/PELKI_ISO@2x.png 2x">
+							</div>
+							<div class="login-title">
+								<h1>Bienvenidos a Pelki</h1>
+							</div>
+							<div class="login-form">
+								<form [formGroup]="loginForm">
+									<div class="wrap-input100 validate-input" data-validate = "Enter username">
+										<input class="input100" type="text" formControlName="username" placeholder="Nombre de usuario">
+									</div>
+									<div class="wrap-input100 validate-input" data-validate="Enter password">
+										<input class="input100" type="password" formControlName="password" placeholder="Contraseña">
+									</div>
+								</form>
 							</div>
 						</div>
-						<div class="col">
-							<div class="text-right">
+						<div class="login-btn">
+							<div class="light">
+								<div class="dark">
+									<button class="login100-form-btn" (click)="loginUser()"> Iniciar Sesión</button>
+								</div>
+							</div>							
+						</div>
+						<div class="olvide-pass">
+							<div class="text-center">
 								<a class="txt1" routerLink="forgetpassword">Olvidó su contraseña?</a>
 							</div>
 						</div>
 					</div>
-					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Iniciar
-						</button>
-					</div>
-
-					<div class="text-center p-t-90">
-						<a class="txt1" routerLink="register">
-							Registrarse
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+					<div class="wrap-register">
+						<h2>No tienes una cuenta?</h2>
+						<div class="register-btn">
+							<div class="light">
+								<div class="dark">
+									<button class="register-form-btn" (click)="register()"> Regístrate</button>
+								</div>
+							</div>
+						</div>					
+					</div>	
+				</div>
+				<div class="main"></div>
 	
-
-	<div id="dropDownSelect1"></div>
-	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="assets/vendor/animsition/js/animsition.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/select2/select2.min.js"></script>
-	<script src="assets/vendor/daterangepicker/moment.min.js"></script>
-	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
-	<script src="assets/js/main.js"></script>
-
+				<div class="right">
+					<div class="title-right">
+						<h1>TE AYUDAMOS A ENCONTRAR <br/>LAS MAESTRANZAS QUE SE <br/>AJUSTEN A TUS <br/>REQUERIMIENTOS </h1>
+					</div>
+					<div class="subtitle-right">
+						<h2>La mejor plataforma para la vinculación entre clientes y maestranzas, reduce tiempos de búsqueda e incertidumbre a la hora de ejecutar tu proyecto.</h2>
+					</div>
+					<div class="logo-pelki">
+						<img src="./assets/images/PELKI_LOGO_OFICIAL_LIGHT_GREY@2x.png" class="d-inline-block align-center" alt=""/>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!--<div class="footer">
+			<div class="row">
+				<div class="col-9">
+					<img src="./assets/images/PELKI_LOGO_OFICIAL_LIGHT_GREY.png" class="d-inline-block align-center" alt=""/>
+				</div>
+				<div class="col-3">
+					<img src="./assets/images/Imagotipo horizontal.png" class="d-inline-block align-center" alt=""/>
+				</div>
+			</div>
+		</div>-->
+	</div>
 </body>
-</html>
+

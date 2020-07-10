@@ -1,1 +1,195 @@
-<p>home-cliente works!</p>
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+				/*
+		    Carousel
+		*/
+		$('#carousel-example').on('slide.bs.carousel', function (e) {
+		    /*
+		        CC 2.0 License Iatek LLC 2018 - Attribution required
+		    */
+		    var $e = $(e.relatedTarget);
+		    var idx = $e.index();
+		    var itemsPerSlide = 5;
+		    var totalItems = $('.carousel-item').length;
+		 
+		    if (idx >= totalItems-(itemsPerSlide-1)) {
+		        var it = itemsPerSlide - (totalItems - idx);
+		        for (var i=0; i<it; i++) {
+		            // append slides to end
+		            if (e.direction=="left") {
+		                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+		            }
+		            else {
+		                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+		            }
+		        }
+		    }
+		});
+	</script>
+
+
+</head>
+<body>
+	<div class="limiter">
+		<div class="contenedor">
+			<div class="row">
+				<div class="top-left">	
+					<h1>Empresas Destacadas</h1>
+				</div>
+				<div class="top-main">
+					<div class="notificacion-btn">
+						<div class="row">
+							<button class="btn">
+								<img  width="40px" height="" src="./assets/icons/bell.svg">
+							</button>
+							<div class="notificacion-pop">			
+								<a>
+									<ng-container *ngIf="num != 0;">
+										<span class="badge">{{num}}</span>
+									</ng-container>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="top-right">
+					<div class="row">
+						<div class="search-input">
+							<form [formGroup]="FilterForm">
+								<input class="input100" type="text" formControlName="search" placeholder="Busca un servicio">
+							</form>
+						</div>
+						<div class="search-button">
+							<button class="btn">
+								<img  width="40px" height="" src="./assets/icons/search.svg">
+							</button>
+						</div>
+					</div>
+				</div>	
+			</div>	
+
+			<div class="row">
+			<div class="left"></div>
+			<div class="main">	
+			
+			<div class="top-content">
+    <div class="container-fluid">
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                    <div class="card" style="width: 18rem;">
+					  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                   <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                   <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                   <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                   <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../assets/images/PELKI_ISO.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+				</div>
+				<div class="right">
+				</div>
+				</div>
+
+		</div>
+		<!--<div class="footer">
+			<div class="row">
+				<div class="col-9">
+					<img src="./assets/images/PELKI_LOGO_OFICIAL_LIGHT_GREY.png" class="d-inline-block align-center" alt=""/>
+				</div>
+				<div class="col-3">
+					<img src="./assets/images/Imagotipo horizontal.png" class="d-inline-block align-center" alt=""/>
+				</div>
+			</div>
+		</div>-->
+	</div>
+</body>
+

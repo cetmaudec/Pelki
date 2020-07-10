@@ -1,31 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login V3</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
-  
-  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap-reboot.min.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/animsition/css/animsition.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/util.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> 
+    <title>Login V3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
 </head>
-
 <body>
-    <div class="container">
-        <div class="container emp-profile">
+  <div class="contenedor">
             <div class="row">
                 <div class="left">
                     <div class="profile-img">
@@ -37,9 +19,9 @@
                         <p class="proile-rating">Calificaciones : <span>{{InfoMaestranza.calificacion}}/5</span></p>
                         <!--<li *ngFor='let in of counter(InfoMaestranza.calificacion) ;let i = index'>{{i}}</li>-->
                         <div class ="row" style="margin-left: 5%;">
-                            <div class="col-2" *ngFor='let in of counter(InfoMaestranza.calificacion) ;let i = index'>
+                       <!--     <div class="col-2" *ngFor='let in of counter(InfoMaestranza.calificacion) ;let i = index'>
                                 <img src="../assets/images/icons/star.svg" style="width: 100%;" alt=""/>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -178,7 +160,6 @@
         <div class="right">
         </div>
       </div>
-    </div>
   </div>
 
   <div id="dropDownSelect1"></div>

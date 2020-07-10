@@ -17,7 +17,7 @@ import { ChangeImageComponent } from '../change-image/change-image.component';
 })
 export class PerfilClienteComponent implements OnInit {
 
-    User: any;
+  User: any;
 	Cliente: any = [];
 	
 	Perfil: FormGroup;
@@ -48,64 +48,64 @@ export class PerfilClienteComponent implements OnInit {
 	}
 
 
-	constructor(public formBuilder: FormBuilder,private router: Router, private http: HttpClient, public dialog: MatDialog) { 
-		this.User = localStorage.getItem('user'); 
-		this.Perfil = this.formBuilder.group({
-	  		file:[''],
-	  		btnAddMore:['']
-	  	});
-	  	this.EmailEditform = this.formBuilder.group({
-	  		correo:['']
-	  	});
-	  	this.TelefonoEditform = this.formBuilder.group({
-	  		telefono:['']
-	  	});
-	  	this.DireccionEditform = this.formBuilder.group({
-	  		dir_calle:[''],
-	  		dir_num:['']
-	  	});
+  constructor(public formBuilder: FormBuilder,private router: Router, private http: HttpClient, public dialog: MatDialog) {
+    this.User = localStorage.getItem('user'); 
+    this.Perfil = this.formBuilder.group({
+      file:[''],
+    });
+    this.EmailEditform = this.formBuilder.group({
+      correo:['']
+    });
+    this.TelefonoEditform = this.formBuilder.group({
+      telefono:['']
+    });
+    this.DireccionEditform = this.formBuilder.group({
+      dir_calle:[''],
+      dir_num:['']
+    });
 	}
 
-  	async ngOnInit() {
-  		this.editCorreo = false;
-		this.editTelefono = false;
-		this.editDireccion = false;
-  		this.Cliente = await this.getInfoUsuario();
-	  	//Let base64data = new Buffer(this.InfoCliente.imagen, 'utf-8').toString('base64');
-	  	//console.log( '" converted to Base64 is "' + base64data + '"');
-  	}
+  async ngOnInit() {
+    this.editCorreo = false;
+    this.editTelefono = false;
+    this.editDireccion = false;
+  	this.Cliente = await this.getInfoUsuario();
+	  //Let base64data = new Buffer(this.InfoCliente.imagen, 'utf-8').toString('base64');
+	  //console.log( '" converted to Base64 is "' + base64data + '"');
+  }
 
+  /*
+  Abrir Modal para cambiar foto del perfil
+  */
+  openDialog() {
+    const dialogRef = this.dialog.open(ChangeImageComponent);	
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
 
-  	openDialog() {
-    	const dialogRef = this.dialog.open(ChangeImageComponent);	
-	    	dialogRef.afterClosed().subscribe(result => {
-	    	  this.ngOnInit();
-    	});
-  	}
-  	
-  	/*
-	Edit
+  /*
+	Editar info (correo, direccion o teléfono)
 	*/
 
-  	EditInfo(dato: String){
-  		if(dato == 'correo'){
-  			this.editCorreo = true;
-  		}else if(dato == 'direccion'){
-  			this.editDireccion = true;
-  		}else if(dato == 'telefono'){
-  			this.editTelefono = true;
-  		}
-  	}
+  EditInfo(dato: String){
+    if(dato == 'correo'){
+      this.editCorreo = true;
+    }else if(dato == 'direccion'){
+      this.editDireccion = true;
+    }else if(dato == 'telefono'){
+      this.editTelefono = true;
+    }
+  }
 
-  	Update(dato: String){
-  		console.log(this.InfoCliente.id_usuario);
-  		if(dato == 'correo'){
-  			var dataCorreo = {
-  				'username' : this.InfoCliente.id_usuario,
-				'correo': this.EmailEditform.get('correo').value
-			}
-			this.http.put(environment.urlAddress+'cliente/correo/update', dataCorreo, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+  Update(dato: String){
+    if(dato == 'correo'){
+      var dataCorreo = {
+        'username' : this.InfoCliente.id_usuario,
+        'correo': this.EmailEditform.get('correo').value
+      }
+      this.http.put(environment.urlAddress+'cliente/correo/update', dataCorreo, {responseType: 'text'}).subscribe(
+        response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -114,20 +114,20 @@ export class PerfilClienteComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
         	  	})
    	 		);
-  		}else if(dato == 'direccion'){
-  			var dataDireccion = {
-  				'username' : this.InfoCliente.id_usuario,
+  	}else if(dato == 'direccion'){
+      var dataDireccion = {
+  			'username' : this.InfoCliente.id_usuario,
 				'dir_calle': this.DireccionEditform.get('dir_calle').value,
 				'dir_num': this.DireccionEditform.get('dir_num').value
 			}
 			this.http.put(environment.urlAddress+'cliente/direccion/update', dataDireccion, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+	      response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -136,20 +136,20 @@ export class PerfilClienteComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
         	  	})
    	 		);
 
-  		}else if(dato == 'telefono'){
-  			var dataTelefono = {
-  				'username' : this.InfoCliente.id_usuario,
+  	}else if(dato == 'telefono'){
+  		var dataTelefono = {
+  		  'username' : this.InfoCliente.id_usuario,
 				'telefono': this.TelefonoEditform.get('telefono').value
 			}
 			this.http.put(environment.urlAddress+'cliente/telefono/update', dataTelefono, {responseType: 'text'}).subscribe(
-	      		response =>  Swal.fire({
+	      response =>  Swal.fire({
                 	icon: 'success',
                 	title: 'Nueva usuario registrado!',
                 	confirmButtonText: 'Ok!'
@@ -158,7 +158,7 @@ export class PerfilClienteComponent implements OnInit {
                 			this.ngOnInit();
                 	    }
                 	}) ,
-        		err => Swal.fire({
+        err => Swal.fire({
         	      icon: 'error',
         	      title: 'Oops!',
         	      text: 'Ha ocurrido un error, vuelva a intentarlo'
@@ -167,7 +167,7 @@ export class PerfilClienteComponent implements OnInit {
   		}	
   	}
 
-  	/*
+  /*
 	GETTERS
 	*/
 	async getInfoUsuario(){

@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from'sweetalert2'
-//import { AuthService } from '../auth.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
-//import { first } from 'rxjs/operators';
-//import { MatTableDataSource, MatSort, Sort } from '@angular/material';
-import { environment } from '../environment';
+
 
 
 @Component({
@@ -16,24 +9,14 @@ import { environment } from '../environment';
 })
 export class PerfilComponent implements OnInit {
 
-  	User: any;
-	tipo: any = [];
-	TipoUser: any = [];
+  User: any;
+  TipoUser: any;
 
-	constructor(private router: Router, private http: HttpClient) { 
-		this.User = localStorage.getItem('user');
-	}
+  constructor() { 
+    this.User = localStorage.getItem('user');
+    this.TipoUser = localStorage.getItem('tipo');
+  }
 
-  	async ngOnInit() {
-  		this.TipoUser = await this.getTipoUsuario();
-  	}
-
-  	/*
-	GETTERS
-	*/
-	async getTipoUsuario(){
-  		this.TipoUser = await this.http.put(environment.urlAddress+'user/type', {username: this.User}).toPromise();
-  		this.tipo = this.TipoUser.data[0].tipo;
-    	return this.TipoUser;
-  	}
+  ngOnInit() {
+  }
 }

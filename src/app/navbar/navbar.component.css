@@ -1,21 +1,35 @@
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
 @font-face {
-  font-family: Poppins-Regular;
-  src: local('../fonts/poppins/Poppins-Regular.ttf'); 
+  font-family: "Open Sans Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 @font-face {
-  font-family: Poppins-Medium;
-  src: local('../fonts/poppins/Poppins-Medium.ttf'); 
+  font-family: "Open Sans Light";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 @font-face {
-  font-family: Poppins-Bold;
-  src: local('../fonts/poppins/Poppins-Bold.ttf'); 
+  font-family: "Open Sans Extrabold";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Open Sans Extrabold"), local("OpenSans-Extrabold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/EInbV5DfGHOiMmvb1Xr-hp1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
 @font-face {
-  font-family: Poppins-SemiBold;
-  src: local('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(https://themes.googleusercontent.com/static/fonts/opensans/v6/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
 
@@ -34,7 +48,7 @@ body{
 
 /*---------------------------------------------*/
 a {
-  font-family: Poppins-Regular;
+  font-family: Open Sans;
   font-size: 14px;
   line-height: 1.7;
   color: #fff;
@@ -54,11 +68,6 @@ a:hover {
   color: #fff;
 }
 
-.nav-link{
-  font-family: Poppins-Bold;
-  font-size: 18px;
-  color:#fff;
-}
 
 .nav-link:hover{
   color:#666666;
@@ -133,14 +142,14 @@ button:hover {
 
 .button-logout{
     color: #f8f9fa ;
-    background-color: #5bc0de;
+    background-color: #ff9f1c;
     border-color: #f8f9fa;
 }
 
 .button-logout:hover {
-    color: #5bc0de ;
+    color: #ff9f1c ;
     background-color: #f8f9fa;
-    border-color: #5bc0de;
+    border-color: #ff9f1c;
 }
 
 
@@ -167,4 +176,73 @@ li{
 
 ul{
   width: 100%;
+}
+
+/*
+
+["ff9f1c","ffbf69","ffffff","cbf3f0","ffbf69"]
+*/
+
+.navbar{
+  background: #e6e6e6;
+  padding: 2%;
+  padding-left:5%;
+}
+
+
+.navbar-brand {
+  width: 40%;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+    .nav-link{
+    font-family: Open Sans Bold;
+    font-size: 3vw;
+    color:rgba(0,0,0,1);
+  }
+  .navbar-brand img{
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 990px){
+  .nav-link{
+    font-family: Open Sans Bold;
+    font-size: 2.3vw;
+    color:rgba(0,0,0,1);
+  }
+
+  .navbar-brand img{
+    width: 50%;
+  }
+}
+
+
+@media screen and (min-width: 990px) and (max-width: 1280px){
+  .nav-link{
+    font-family: Open Sans Bold;
+    font-size: 1.5vw;
+    color:rgba(0,0,0,1);
+  }
+
+  .navbar-brand img{
+    width: 40%;
+  }
+}
+
+
+
+@media screen and (min-width: 1280px) {
+    .nav-link{
+    font-family: Open Sans Bold;
+    font-size: 1vw;
+    color:rgba(0,0,0,1);
+  }
+
+  .navbar-brand img{
+    width: 30%;
+  }
 }

@@ -27,19 +27,44 @@ app.use(cors())
 app.post('/auth',  bodyParser.json(), (req, res, next) => {
     const select_query=`SELECT COUNT(*) as total FROM usuario WHERE usuario.username='${req.body.username}' AND usuario.password = SHA('${req.body.password}');`
     con.query(select_query, (err, result) => {
+        if (err){
+            console.log(err);
+            return res.sendStatus(401);
+        }else{
+            if(result[0].total>0){
+                con.query(`SELECT tipo  FROM usuario WHERE usuario.username='${req.body.username}' AND usuario.password = SHA('${req.body.password}');`, (err, resultados) => {
+                    if(err) {
+                        return res.sendStatus(401);
+                    } else {
+                        var token = jwt.sign({userID: req.body.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
+                        res.send({'token': token, 'tipo': resultados[0].tipo });
+
+                    }
+                })
+            }else{
+                return res.sendStatus(401);    
+            }
+        }
+    })
+});
+
+
+/*app.post('/auth',  bodyParser.json(), (req, res, next) => {
+    const select_query=`SELECT tipo  FROM usuario WHERE usuario.username='${req.body.username}' AND usuario.password = SHA('${req.body.password}');`
+    con.query(select_query, (err, result) => {
      if (err){
+            console.log(err);
            return res.sendStatus(401);
         }else{
-            console.log(result[0].total);
-            if(result[0].total>0){
+            if(result[0].tipo != ''){
                 var token = jwt.sign({userID: req.body.username}, 'todo-app-super-shared-secret', {expiresIn: '2h'});
-                res.send({token});
+                res.send({'token': token, 'tipo': result[0].tipo });
             }else{
                 return res.sendStatus(401);
             }
      }
     });
-});
+});*/
 
 app.get('/users/username', (req, res) => {
     con.query('SELECT username FROM usuario;', (err, resultados) => {
@@ -256,10 +281,10 @@ app.put('/cliente/direccion/update', bodyParser.json(), (req, res, next) => {
 })
 
 
+
 /*
 LOCATION
 */
-
 app.get('/location/region' , (req, res) => {
   con.query(`SELECT * FROM region;`, (err, resultados) => {
         if(err) {
@@ -297,9 +322,21 @@ app.get('/location/provincia/comuna' , (req, res) => {
     })
 })
 
-
-
-
+/*
+Requerimiento
+*/
+app.put('/requerimiento', bodyParser.json(), (req, res, next) => {
+    con.query(`SELECT requerimiento.id as id, requerimiento.servicio as servicio, requerimiento.img as imagen, requerimiento.cliente as cliente, requerimiento.maestranza as maestranza, requerimiento.fecha_creacion as fecha, requerimiento.estado as estado 
+        FROM usuario, cliente, requerimiento WHERE usuario.id=cliente.usuario AND usuario.username='${req.body.username}' AND requerimiento.cliente=cliente.id;`, (err, resultados) => {
+        if(err) {
+            return res.send(err)
+        } else {
+            return res.json({
+                data: resultados
+            })
+        }
+    })
+})
 
 app.listen(2001, () => {
     console.log('el servidor está usando el puerto 2001 -')

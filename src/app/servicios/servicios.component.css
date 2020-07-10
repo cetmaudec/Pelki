@@ -1,18 +1,17 @@
-.container{
-	height: 80%;
-}
 
 app-navbar{
 	display: block;
 	height: auto;
 }
 
-app-home-maestranza{
+app-servicios-cliente{
 	display: block;
 	height: auto;
+	width: 100%;
 }
 
-app-home-cliente{
+app-servicios-maestranza{
 	display: block;
+	width: 100%;
 	height: auto;
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login V3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+</head>
+
+<body>
+	<div class="contenedor">
+		<div class="row">
+        	<div class="left">
+            </div>
+
+            <div class="main">
+            	<div class="bs-example">
+            		<div class="table-responsive table table-hover"> 
+            			<table class="table">
+            				<thead>
+            					<tr>
+            						<th>N°</th>
+                					<th>Servicio</th>
+                					<th>Maestranza</th>
+                					<th>Fecha Ingreso</th>
+                					<th>Estado</th>
+                				</tr>
+                			</thead>
+                			<tbody>
+            					<tr *ngFor="let req of this.Requerimiento.data">
+            					    <td>1</td>
+            					    <td>{{req.servicio}}</td>
+            					    <td>{{req.maestranza}}</td>
+            					    <td>{{req.fecha}}</td>
+            					    <td>{{req.estado}}</td>
+            					</tr>
+            				</tbody>
+            			</table>
+            		</div>    
+            	</div>	
+            </div>
+
+            <div class="right">	
+            </div>
+        </div>
+  </div>
+
+  <div id="dropDownSelect1"></div>
+  <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="assets/vendor/animsition/js/animsition.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/select2/select2.min.js"></script>
+  <script src="assets/vendor/daterangepicker/moment.min.js"></script>
+  <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+  <script src="assets/vendor/countdowntime/countdowntime.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html> 
