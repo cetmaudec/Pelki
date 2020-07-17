@@ -38,7 +38,8 @@ import { ServiciosMaestranzaComponent } from './servicios-maestranza/servicios-m
 import { ServiciosClienteComponent } from './servicios-cliente/servicios-cliente.component';
 
 import { FormsModule } from '@angular/forms';
-import {MatSlideToggleModule} from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material';
+
 
 
 export function tokenGetter() {
@@ -96,7 +97,7 @@ export function tokenGetter() {
     ],
     providers: [
         AuthService,
-        AuthGuard    
+        AuthGuard,  
     ],
     bootstrap: [AppComponent]
 })
